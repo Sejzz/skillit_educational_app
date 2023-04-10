@@ -100,7 +100,7 @@ void initState(){
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Homealone',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.sell),
