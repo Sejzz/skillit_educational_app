@@ -13,6 +13,8 @@ class notes extends StatefulWidget {
 class _notesState extends State<notes> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }
