@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:skill_it/mainmain.dart';
 import 'package:skill_it/pages/home.dart';
 import 'package:skill_it/widgets/reusable.dart';
 
@@ -20,7 +21,9 @@ class _signupState extends State<signup> {
         body: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [Color(0xFFFFACAC), Color(0xFFAC66CC)])),
+                  begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                colors: [Color(0xff443C68), Color(0xff393053),])),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: SingleChildScrollView(
@@ -64,45 +67,45 @@ class _signupState extends State<signup> {
                       SizedBox(
                         height: 24,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          // getInfoAndSignUp();
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 20),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Text(
-                            "Sign Up",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFFAC66CC)),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-
-                      //  signInsignUpButton(context, false, (){
-                      //    FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      //      email: _emailTextController.text,
-                      //     password: _passwordTextController.text).then((value) {
-                      //      print("Created New Account");
-                      //          Navigator.push(context,
-                      //    MaterialPageRoute(builder: (context) => home()));
-
-                      //     }).onError((error, stackTrace) {
-                      //      print("Error ${error.toString()}");
-                      //     });
-
-                      //  }
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     // getInfoAndSignUp();
+                      //   },
+                      //   child: Container(
+                      //     alignment: Alignment.center,
+                      //     width: MediaQuery.of(context).size.width,
+                      //     padding: EdgeInsets.symmetric(
+                      //         horizontal: 24, vertical: 20),
+                      //     decoration: BoxDecoration(
+                      //         color: Colors.white,
+                      //         borderRadius: BorderRadius.circular(30)),
+                      //     child: Text(
+                      //       "Sign Up",
+                      //       style: TextStyle(
+                      //           fontSize: 16,
+                      //           fontWeight: FontWeight.bold,
+                      //           color: Color(0xff393053),),
+                      //     ),
                       //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 20,
+                      // ),
+
+                       signInsignUpButton(context, false, (){
+                         FirebaseAuth.instance.createUserWithEmailAndPassword(
+                           email: _emailTextController.text,
+                          password: _passwordTextController.text).then((value) {
+                           print("Created New Account");
+                               Navigator.push(context,
+                         MaterialPageRoute(builder: (context) => mainmain()));
+
+                          }).onError((error, stackTrace) {
+                           print("Error ${error.toString()}");
+                          });
+
+                       }
+                        ),
                     ])))));
   }
 }

@@ -57,8 +57,9 @@ class _AddQuestionState extends State<AddQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff393053),
       appBar: AppBar(
-          backgroundColor: Color(0xFFAC66CC),
+          backgroundColor: Color(0xff443C68),
           title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             // Image.asset(
             //   'assets//images/white.png',
@@ -91,7 +92,7 @@ class _AddQuestionState extends State<AddQuestion> {
                       TextFormField(
                         validator: (val) =>
                             val!.isEmpty ? "Enter Option1" : null,
-                        decoration: InputDecoration(hintText: "Option1 (Correct Answer)"),
+                        decoration: InputDecoration(hintText: "Option1 (Correct Answer)", hintStyle: TextStyle( color: Colors.white),),
                         onChanged: (val) {
                           option1 = val;
                         },
@@ -102,7 +103,7 @@ class _AddQuestionState extends State<AddQuestion> {
                       TextFormField(
                         validator: (val) =>
                             val!.isEmpty ? "Enter Option2" : null,
-                        decoration: InputDecoration(hintText: "Option2"),
+                        decoration: InputDecoration(hintText: "Option2",  hintStyle: TextStyle( color: Colors.white),),
                         onChanged: (val) {
                           option2 = val;
                         },
@@ -113,7 +114,7 @@ class _AddQuestionState extends State<AddQuestion> {
                       TextFormField(
                         validator: (val) =>
                             val!.isEmpty ? "Enter Option3" : null,
-                        decoration: InputDecoration(hintText: "Option3"),
+                        decoration: InputDecoration(hintText: "Option3", hintStyle: TextStyle( color: Colors.white),),
                         onChanged: (val) {
                           option3 = val;
                         },
@@ -121,7 +122,7 @@ class _AddQuestionState extends State<AddQuestion> {
                        TextFormField(
                         validator: (val) =>
                             val!.isEmpty ? "Enter Option4" : null,
-                        decoration: InputDecoration(hintText: "Option4"),
+                        decoration: InputDecoration(hintText: "Option4", hintStyle: TextStyle( color: Colors.white),),
                         onChanged: (val) {
                           option4 = val;
                         },

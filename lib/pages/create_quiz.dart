@@ -43,8 +43,9 @@ class _CreateQuizState extends State<CreateQuiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff393053),
       appBar: AppBar(
-          backgroundColor: Color(0xFFAC66CC),
+          backgroundColor: Color(0xff443C68),
           title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             // Image.asset(
             //   'assets//images/white.png',
@@ -66,7 +67,7 @@ class _CreateQuizState extends State<CreateQuiz> {
                     TextFormField(
                       validator: (val) =>
                           val!.isEmpty ? "Enter Quiz Image Url" : null,
-                      decoration: InputDecoration(hintText: "Quiz Image Url"),
+                      decoration: InputDecoration(hintText: "Quiz Image Url", hintStyle: TextStyle( color: Colors.white),),
                       onChanged: (val) {
                         quizImgUrl = val;
                       },
@@ -77,7 +78,7 @@ class _CreateQuizState extends State<CreateQuiz> {
                     TextFormField(
                       validator: (val) =>
                           val!.isEmpty ? "Enter Quiz Title" : null,
-                      decoration: InputDecoration(hintText: "Quiz Title"),
+                      decoration: InputDecoration(hintText: "Quiz Title", hintStyle: TextStyle( color: Colors.white),),
                       onChanged: (val) {
                         quizTitle = val;
                       },
@@ -88,7 +89,7 @@ class _CreateQuizState extends State<CreateQuiz> {
                     TextFormField(
                       validator: (val) =>
                           val!.isEmpty ? "Enter Quiz Description" : null,
-                      decoration: InputDecoration(hintText: "Quiz Description"),
+                      decoration: InputDecoration(hintText: "Quiz Description", hintStyle: TextStyle( color: Colors.white),),
                       onChanged: (val) {
                         quizDesc = val;
                       },

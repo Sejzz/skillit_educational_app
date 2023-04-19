@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:skill_it/mainmain.dart';
 import 'package:skill_it/pages/AddQuestion.dart';
 import 'package:skill_it/pages/create_quiz.dart';
 import 'package:skill_it/pages/home.dart';
 import 'package:skill_it/pages/login.dart';
+import 'package:skill_it/pages/splash.dart';
 
 void main() async {
  WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: home(),
+      home: 
+      splash(username: '',),
+     // home: mainmain(),
     );
   }
 }

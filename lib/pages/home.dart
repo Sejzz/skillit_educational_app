@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:skill_it/pages/create_quiz.dart';
+import 'package:skill_it/pages/doubt_gpt.dart';
+import 'package:skill_it/pages/login.dart';
+import 'package:skill_it/pages/notes.dart';
 import 'package:skill_it/pages/play_quiz.dart';
+import 'package:skill_it/pages/study.dart';
 import 'package:skill_it/services/database.dart';
 
 
@@ -11,26 +17,26 @@ class home extends StatefulWidget {
 
  }
 
-// int selectedIndex = 0;
 
-//  home.sellActivated(){
-//     selectedIndex=1;
-//   }
-//   home.launchSlide(int index){
-//     selectedIndex=index;
-
-//  }
   static String id = "/home";
   @override
   State<home> createState() => _homeState();
 }
 
 class _homeState extends State<home> {
-   void _onItemTapped(int index) {
-    setState(() {
-     // widget.selectedIndex = index;
-    });
-  }
+  //  int index = 0;
+  //  final screens = [
+  //   home(),
+  //   study(),
+  //   notes(),
+  //   chat_doubt(),
+  //  ];
+
+  //  void _onItemTapped(int index) {
+  //   setState(() {
+  //    // widget.selectedIndex = index;
+  //   });
+  // }
     Stream? quizStream;
   DatabaseService databaseService = new DatabaseService();
   Widget quizList(){
@@ -70,52 +76,105 @@ void initState(){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer( 
+          backgroundColor: Color(0xff393053), 
+          child: ListView(
+               padding: EdgeInsets.only(top: 30),  
+    children: <Widget>[  
+     
+           ListTile(  
+            
+        title: Text("Log Out", style: TextStyle(color: Colors.white),),  
+        onTap: () {  
+         FirebaseAuth.instance.signOut().then((value) {
+          print("logged out");
+          Navigator.push(context,
+           MaterialPageRoute(builder: (context) => login()));
+
+         } );
+        },  
+      ),  
+    ]
+          ),
+        ),
+      backgroundColor: Color(0xff393053),
       appBar: AppBar(
-          backgroundColor: Color(0xFFAC66CC),
-          title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            // Image.asset(
-            //   'assets//images/white.png',
-            //   fit: BoxFit.cover,
-            //   width: 55,
-            //   height: 55,
-            // ),
+        
+          backgroundColor: Color(0xff443C68),
+          title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+            Text("Tests"),
+            Image.asset(
+              'assets/images/white.png',
+              fit: BoxFit.cover,
+              width: 55,
+              height: 55,
+            ),
           ])),
-      body: quizList(),
+          
+      body: Padding(
+        padding:  EdgeInsets.only(top: 15.0),
+        
+        child: quizList()),
+      
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFAC66CC),
-        child: Icon(Icons.add),
+        backgroundColor: Color.fromARGB(255, 242, 242, 245),
+        child: Icon(Icons.add, color: Color(0xff393053),),
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => CreateQuiz()));
         },
       ),
-     bottomNavigationBar:BottomNavigationBar(
-     // backgroundColor: kGrey,
-      //  currentIndex: widget.selectedIndex,
-       // selectedItemColor: kRed,
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.red,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Homealone',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sell),
-            label: 'Study',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.handshake),
-            label: 'Notes',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Doubt',
-          ),
-        ],
-      ),
+
+      // bottomNavigationBar: NavigationBarTheme(
+      //   data: NavigationBarThemeData(
+      //     indicatorColor: Colors.blue.shade100,
+      //     labelTextStyle: MaterialStateProperty.all(
+      //       TextStyle(fontSize: 14, fontWeight: FontWeight.w500)
+      //     )
+      //   ),
+      //   child: NavigationBar(
+      //     height: 60,
+      //     backgroundColor: Color(0xFFf1f5fb),
+      //     selectedIndex: index,
+      //     onDestinationSelected: (index) => 
+      //     setState(() => this.index = index),
+      //     destinations: [
+      //     NavigationDestination(icon: Icon(Icons.email_outlined), label: 'Mail'),
+      //     NavigationDestination(icon: Icon(Icons.chat_bubble_outline), label: 'Chat'),
+      //      NavigationDestination(icon: Icon(Icons.email_outlined), label: 'Mail'),
+      //     NavigationDestination(icon: Icon(Icons.chat_bubble_outline), label: 'Chat'),
+      //   ]),
+      // ),
+    //  bottomNavigationBar:NavigationBar(
+    //  // backgroundColor: kGrey,
+    //   //  currentIndex: widget.selectedIndex,
+    //    // selectedItemColor: kRed,
+    //    // unselectedItemColor: Colors.black,
+    //    // selectedItemColor: Colors.red,
+    //    selectedItemColor: Colors.red,
+    //    currentIndex: _currentIndex,
+    //     onTap: onTabTapped,
+    //     type: BottomNavigationBarType.fixed,
+    //     items: [
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.home),
+    //         //label: 'Homealone',
+    //       ),
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.sell),
+    //         //label: 'Study',
+    //       ),
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.handshake),
+    //         //label: 'Notes',
+    //       ),
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.group),
+    //         label: 'Doubt',
+    //       ),
+    //     ],
+    //   ),
     );
   }
 }

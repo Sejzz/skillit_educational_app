@@ -53,7 +53,7 @@ Container signInsignUpButton(BuildContext context, bool login, Function onTap) {
       child: Text(
         login ? "LOG IN" : "SIGN UP",
         style: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+            color: Color(0xff393053), fontWeight: FontWeight.bold, fontSize: 16),
       ),
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith((states) {
@@ -73,7 +73,7 @@ Widget ourButton({required BuildContext context, required String label, buttonWi
   return Container(
     padding: EdgeInsets.symmetric(vertical: 18),
     decoration: BoxDecoration(
-        color: Color(0xFFAC66CC), borderRadius: BorderRadius.circular(30)),
+        color: Color(0xff443C68), borderRadius: BorderRadius.circular(30)),
     alignment: Alignment.center,
    width: buttonWidth ?? MediaQuery.of(context).size.width-48,
     child: Text(

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:skill_it/mainmain.dart';
 import 'package:skill_it/pages/home.dart';
 import 'package:skill_it/pages/signup.dart';
 import 'package:skill_it/services/auth.dart';
@@ -24,7 +25,10 @@ class _loginState extends State<login> {
         body: Container(
       decoration: BoxDecoration(
           gradient:
-              LinearGradient(colors: [Color(0xFFFFACAC), Color(0xFFAC66CC)])),
+              LinearGradient(
+                  begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
+                colors: [Color(0xff443C68), Color(0xff393053),])),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: SingleChildScrollView(
@@ -32,11 +36,11 @@ class _loginState extends State<login> {
         padding: const EdgeInsets.fromLTRB(20, 80, 20, 10),
         child: Column(
           children: <Widget>[
-            // Image.asset(
-            //   "assets/images/white.png",
-            //   width: 250,
-            //   height: 150,
-            // ),
+            Image.asset(
+              "assets/images/white.png",
+              width: 250,
+              height: 150,
+            ),
             const SizedBox(
               height: 40,
             ),
@@ -64,40 +68,40 @@ class _loginState extends State<login> {
             SizedBox(
               height: 24,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => home()));
-              },
-              child: Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30)),
-                child: Text(
-                  "Log In",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFAC66CC)),
-                ),
-              ),
-            ),
-            SizedBox(
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.push(
+            //         context, MaterialPageRoute(builder: (context) => home()));
+            //   },
+            //   child: Container(
+            //     alignment: Alignment.center,
+            //     width: MediaQuery.of(context).size.width,
+            //     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            //     decoration: BoxDecoration(
+            //         color: Colors.white,
+            //         borderRadius: BorderRadius.circular(30)),
+            //     child: Text(
+            //       "Log In",
+            //       style: TextStyle(
+            //           fontSize: 16,
+            //           fontWeight: FontWeight.bold,
+            //           color: Color(0xff393053),),
+            //     ),
+            //   ),
+            // ),
+          
+             signInsignUpButton(context, true, (){
+              FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailTextController.text,
+               password: _passwordTextController.text).then((value) {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => mainmain()));
+              }).onError((error, stackTrace) {
+                print("Error ${error.toString()}");
+             });
+
+             }),
+  SizedBox(
               height: 20,
             ),
-            //  signInsignUpButton(context, true, (){
-            //   FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailTextController.text,
-            //    password: _passwordTextController.text).then((value) {
-            //     Navigator.push(context, MaterialPageRoute(builder: (context) => home()));
-            //   }).onError((error, stackTrace) {
-            //     print("Error ${error.toString()}");
-            //  });
-
-            //  }),
-
             SignUpOption()
           ],
         ),

@@ -90,9 +90,18 @@ class _PlayQuizState extends State<PlayQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      //  title: AppLogo(),
+        title:  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+            Text("Tests"),
+            Image.asset(
+              'assets/images/white.png',
+              fit: BoxFit.cover,
+              width: 55,
+              height: 55,
+            ),
+          ]),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xff443C68),
         brightness: Brightness.light,
         elevation: 0.0,
       ),
@@ -130,6 +139,7 @@ class _PlayQuizState extends State<PlayQuiz> {
               ),
           ),
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Color(0xff443C68),
             child: Icon(Icons.check),
             onPressed: (){
               Navigator.pushReplacement(context, MaterialPageRoute(
