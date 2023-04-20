@@ -68,27 +68,7 @@ class _loginState extends State<login> {
             SizedBox(
               height: 24,
             ),
-            // GestureDetector(
-            //   onTap: () {
-            //     Navigator.push(
-            //         context, MaterialPageRoute(builder: (context) => home()));
-            //   },
-            //   child: Container(
-            //     alignment: Alignment.center,
-            //     width: MediaQuery.of(context).size.width,
-            //     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-            //     decoration: BoxDecoration(
-            //         color: Colors.white,
-            //         borderRadius: BorderRadius.circular(30)),
-            //     child: Text(
-            //       "Log In",
-            //       style: TextStyle(
-            //           fontSize: 16,
-            //           fontWeight: FontWeight.bold,
-            //           color: Color(0xff393053),),
-            //     ),
-            //   ),
-            // ),
+          
           
              signInsignUpButton(context, true, (){
               FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailTextController.text,

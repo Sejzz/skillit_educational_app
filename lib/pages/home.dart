@@ -126,55 +126,7 @@ void initState(){
         },
       ),
 
-      // bottomNavigationBar: NavigationBarTheme(
-      //   data: NavigationBarThemeData(
-      //     indicatorColor: Colors.blue.shade100,
-      //     labelTextStyle: MaterialStateProperty.all(
-      //       TextStyle(fontSize: 14, fontWeight: FontWeight.w500)
-      //     )
-      //   ),
-      //   child: NavigationBar(
-      //     height: 60,
-      //     backgroundColor: Color(0xFFf1f5fb),
-      //     selectedIndex: index,
-      //     onDestinationSelected: (index) => 
-      //     setState(() => this.index = index),
-      //     destinations: [
-      //     NavigationDestination(icon: Icon(Icons.email_outlined), label: 'Mail'),
-      //     NavigationDestination(icon: Icon(Icons.chat_bubble_outline), label: 'Chat'),
-      //      NavigationDestination(icon: Icon(Icons.email_outlined), label: 'Mail'),
-      //     NavigationDestination(icon: Icon(Icons.chat_bubble_outline), label: 'Chat'),
-      //   ]),
-      // ),
-    //  bottomNavigationBar:NavigationBar(
-    //  // backgroundColor: kGrey,
-    //   //  currentIndex: widget.selectedIndex,
-    //    // selectedItemColor: kRed,
-    //    // unselectedItemColor: Colors.black,
-    //    // selectedItemColor: Colors.red,
-    //    selectedItemColor: Colors.red,
-    //    currentIndex: _currentIndex,
-    //     onTap: onTabTapped,
-    //     type: BottomNavigationBarType.fixed,
-    //     items: [
-    //       BottomNavigationBarItem(
-    //         icon: Icon(Icons.home),
-    //         //label: 'Homealone',
-    //       ),
-    //       BottomNavigationBarItem(
-    //         icon: Icon(Icons.sell),
-    //         //label: 'Study',
-    //       ),
-    //       BottomNavigationBarItem(
-    //         icon: Icon(Icons.handshake),
-    //         //label: 'Notes',
-    //       ),
-    //       BottomNavigationBarItem(
-    //         icon: Icon(Icons.group),
-    //         label: 'Doubt',
-    //       ),
-    //     ],
-    //   ),
+      
     );
   }
 }
